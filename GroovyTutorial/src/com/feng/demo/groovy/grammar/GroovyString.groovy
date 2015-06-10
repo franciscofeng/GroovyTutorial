@@ -21,6 +21,9 @@ class GroovyString {
 		
 		def date = new Date()
 		println("today is ${date.getDateString()}")
+		
+		assert 'abc' == /abc/
+		assert name == /$name/
 	}
 
 }
