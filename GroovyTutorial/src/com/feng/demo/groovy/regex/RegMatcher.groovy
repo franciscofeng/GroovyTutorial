@@ -21,6 +21,17 @@ class RegMatcher {
 		def words = s.split(/ /)
 		assert words.size() == 5
 		assert words[0] == 'sha'
+		
+		def st ='word wait work with worth'
+		def p = /wor\w*/
+		def result = ''
+		st.eachMatch(p) {match -> result += match + ' '}
+		assert 'word work worth ' == result
+		
+		result = ''
+		(st =~ p).each {match -> result += match+' '}
+		assert 'word work worth ' == result
+		
 	}
 
 }
