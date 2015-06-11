@@ -43,6 +43,17 @@ class GroovyOO {
 		assert demo.returnStr(a) == 'object'
 		assert demo.returnStr(b) == 'string'
 		
+		//* operator 
+		//list*.member means list.collect{item -> item?.member}
+		def list = ['tom','jerry','john']
+		assert list*.size() == [3,5,4] 
+		//gpath and *
+		assert list.grep{it.size() > 3}*.contains('o') == [false,true]
+		
+		//* to expand
+		def range = (1..3)
+		assert [0,*range] == [0,1,2,3]
+		
 	}
 	
 	String returnStr(Object o)
